@@ -35,7 +35,7 @@ Clone this repository
 bash
 Kopieren
 Bearbeiten
-git clone https://github.com/yourusername/marine-assistant.git
+git clone https://github.com/marine-assistant/Marineassistant.git
 Flash the firmware using PlatformIO or the Arduino IDE
 
 Configure Wi-Fi and MQTT/Home Assistant settings
