@@ -3,11 +3,17 @@ Open-source smart aquarium monitoring and control system, built for reef tank au
 👉 www.marine-assistant.com
 
 🌟 Features
+
 ✅ Monitor water temperature, water level, and leaks
+
 ✅ Control 12V and 120V/240V devices (lighting, pumps, fans, etc.)
+
 ✅ Support for analog sensors: pH, TDS, EC, ORP
+
 ✅ Seamless integration with Home Assistant
+
 ✅ Local network operation (no cloud required)
+
 ✅ Customizable dashboards and automation logic
 
 🔧 Hardware Requirements
