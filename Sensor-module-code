@@ -1,0 +1,262 @@
+# Start of the Marine Assistant custom code.
+# Everything with a # at the start of the line is "uncommented"and will be ignored by ESPhome, to activate the lines needed simply delete the #
+# 6 is CLOCK and can't be used, Optical from 6 to 10
+# 8 is DATA and can't be used, Leak2 from 8 to 9
+# 11 is Flash and can't be used
+# 15 cant be used
+# 7 is Flash and can't be used , Leak3 from 7 to 14
+# Marine assistant hardware version 1
+# i2c pins for ESP32 sensor module
+i2c:
+  sda: GPIO21 
+  scl: GPIO22
+  scan: true
+
+ads1115:
+  - address: 0x48
+
+# Here are the one wire temperature sensors
+one_wire:
+  - platform: gpio
+    pin: GPIO17
+
+sensor:
+#  - platform: dallas_temp
+#    address: 
+#    name: Ambient 
+#    update_interval: 10s
+
+#  - platform: dallas_temp
+#    address: 
+#    name: sumptemp
+#    update_interval: 10s
+
+#  - platform: dallas_temp
+#    address: 
+#    name: Fragtank
+#    update_interval: 10s
+
+#  - platform: dallas_temp
+#    address: #ID here
+#    name: name4
+#    update_interval: 10s
+
+#  - platform: dallas_temp
+#    address: #ID here
+#    name: name5
+#    update_interval: 10s
+
+#  Echo distance sensor
+  - platform: ultrasonic
+    trigger_pin: 16
+    echo_pin: 4
+    name: "Ultrasonic Sensor1"
+    filters:
+       - filter_out: nan
+       - calibrate_linear:
+         - 0.0 -> 100
+         - 0.30 -> 0.0
+    update_interval: 10s
+    pulse_time: 20us
+    timeout: 5.0m
+    unit_of_measurement: "%"
+
+
+
+#Analog sensors
+  - platform: ads1115
+    multiplexer: 'A0_GND'
+    gain: 6.144 
+    name: "PH"
+    filters:
+     - calibrate_linear:
+        - 2.075 -> 4.0
+        - 0.637 -> 7.0
+        - 0.165 -> 10.0
+     - median:
+        window_size: 20
+        send_every: 10
+        send_first_at: 8
+#    unit_of_measurement: "Ph"
+
+  - platform: ads1115
+    multiplexer: 'A1_GND'
+    gain: 6.144 
+    name: "Salinity"
+    filters:
+     - calibrate_linear:
+        - 2.075 -> 4.0
+        - 0.637 -> 7.0
+        - 0.165 -> 10.0
+        - 3.69 -> 8.20
+     - median:
+        window_size: 40
+        send_every: 30
+        send_first_at: 8
+#    unit_of_measurement: "salt"
+
+  - platform: ads1115
+    multiplexer: 'A2_GND'
+    gain: 6.144 
+    name: "ORP"
+    filters:
+     - calibrate_linear:
+        - 2.075 -> 4.0
+        - 0.637 -> 7.0
+        - 0.165 -> 10.0
+        - 3.69 -> 8.20
+     - median:
+        window_size: 40
+        send_every: 30
+        send_first_at: 8
+#    unit_of_measurement: "ORP"
+
+  - platform: ads1115
+    multiplexer: 'A3_GND'
+    gain: 6.144 
+    name: "TDS"
+    filters:
+     - calibrate_linear:
+        - 2.075 -> 4.0
+        - 0.637 -> 7.0
+        - 0.165 -> 10.0
+        - 3.69 -> 8.20
+     - median:
+        window_size: 40
+        send_every: 30
+        send_first_at: 8
+#    unit_of_measurement: "TDS"
+
+# First six are the float switches
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 23
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: float1 #(Float1)
+
+  - platform: gpio
+    pin:
+      number: 1
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: float2 #(Float2)
+
+  - platform: gpio
+    pin:
+      number: 3
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: skimmer sensor #(Float3)
+
+  - platform: gpio
+    pin:
+      number: 19
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: float4 #(Float4)
+
+  - platform: gpio
+    pin:
+      number: 18
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: float5 #(Float5)
+
+  - platform: gpio
+    pin:
+      number: 32
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: float6 #(Float6)
+
+#Buttons
+  - platform: gpio
+    pin:
+      number: 36
+      inverted: true
+      mode:
+        input: true
+#        pullup: true
+    name: Button1 #(button1)
+
+  - platform: gpio
+    pin:
+      number: 39
+      inverted: true
+      mode:
+        input: true
+#        pullup: true
+    name: Button2 #(button2)
+ 
+# Here is the Opticalsensor.    
+  - platform: gpio
+    pin:
+      number: 35
+      inverted: False
+    name: Optical #(Optical)
+    filters:
+      - delayed_on: 20ms
+      - delayed_off: 20ms
+
+# Here are the Leaksensors.    
+
+  - platform: gpio
+    pin:
+      number: 34
+      inverted: False
+      mode:
+        input: true
+        pullup: False
+    name: Leak1 #(Leak1)
+
+  - platform: gpio
+    pin:
+      number: 14
+      inverted: False
+      mode:
+        input: true
+        pullup: False
+    name: Leak2 #(Leak2)
+    
+# 12v outputs
+switch:
+  - platform: gpio
+    pin:
+      number: 33
+    name: "Output1"   
+
+  - platform: gpio
+    pin:
+      number: 25
+    name: "Output2"  
+
+  - platform: gpio
+    pin:
+      number: 26
+    name: "Output3"  
+
+  - platform: gpio
+    pin:
+      number: 13
+    name: "Output3"  
+
+  - platform: gpio
+    pin:
+      number: 27
+    name: "Buzzer"  
+
+# End of the Marine Assistant custom code.
