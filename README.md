@@ -1,4 +1,4 @@
-Marine Assistant 🐠
+**Marine Assistant** 🐠
 Open-source smart aquarium monitoring and control system, built for reef tank automation and fully integrated with Home Assistant.
 👉 www.marine-assistant.com
 
