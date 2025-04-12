@@ -36,6 +36,7 @@ bash
 Kopieren
 Bearbeiten
 git clone https://github.com/marine-assistant/Marineassistant.git
+
 Flash the firmware using PlatformIO or the Arduino IDE
 
 Configure Wi-Fi and MQTT/Home Assistant settings
