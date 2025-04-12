@@ -2,6 +2,8 @@ Marine Assistant 🐠
 Open-source smart aquarium monitoring and control system, built for reef tank automation and fully integrated with Home Assistant.
 👉 www.marine-assistant.com
 
+![Marine assistant hardware]([image-url](https://static.wixstatic.com/media/9f83e8_bde41e1b6a6445a0b7062d57c9d55f5f~mv2.png/v1/crop/x_502,y_92,w_940,h_638/fill/w_427,h_290,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/v2%20case%20(v15~recovered)%20PCB.png))
+
 🌟 Features
 
 ✅ Monitor water temperature, water level, and leaks
