@@ -3,7 +3,6 @@ Open-source smart aquarium monitoring and control system, built for reef tank au
 👉 www.marine-assistant.com
 
 ![alt text](https://github.com/marine-assistant/Marineassistant/blob/main/v2%20case%20(v15~recovered)%20PCB.png)
-![Hardware]([image-url](https://github.com/marine-assistant/Marineassistant/blob/main/v2%20case%20(v15~recovered)%20PCB.png))
 
 🌟 Features
 
