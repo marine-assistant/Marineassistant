@@ -1,11 +1,6 @@
 # Start of the Marine Assistant custom code.
 # Everything with a # at the start of the line is "uncommented"and will be ignored by ESPhome, to activate the lines needed simply delete the #
-# 6 is CLOCK and can't be used, Optical from 6 to 10
-# 8 is DATA and can't be used, Leak2 from 8 to 9
-# 11 is Flash and can't be used
-# 15 cant be used
-# 7 is Flash and can't be used , Leak3 from 7 to 14
-# Marine assistant hardware version 1
+# Marine assistant hardware version 2
 # i2c pins for ESP32 sensor module
 i2c:
   sda: GPIO21 
