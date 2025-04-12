@@ -4,7 +4,7 @@ Open-source smart aquarium monitoring and control system, built for reef tank au
 
 ![alt text](https://github.com/marine-assistant/Marineassistant/blob/main/v2%20case%20(v15~recovered)%20PCB.png)
 
-🌟 Features
+🌟 **Features**
 
 ✅ Monitor water temperature, water level, and leaks
 
@@ -28,7 +28,7 @@ Analog sensor support via I2C/ADC (for pH, EC, etc.)
 
 Full wiring diagrams and BOM coming soon on the website.
 
-📦 Installation
+📦 **Installation**
 Clone this repository
 
 bash
@@ -41,13 +41,13 @@ Configure Wi-Fi and MQTT/Home Assistant settings
 
 Connect hardware and start monitoring!
 
-💻 Home Assistant Integration
+💻 **Home Assistant Integration**
 Marine Assistant communicates with Home Assistant over MQTT or native integrations.
 Dashboards, automations, and alerts can be configured easily through the Home Assistant UI.
 
 
-🤝 Contributing
+🤝 **Contributing**
 Pull requests, issue reports, and feature suggestions are welcome! Check out the issues page to get started.
 
-📜 License
+📜 **License**
 This project is licensed under the MIT License. See LICENSE for details.
